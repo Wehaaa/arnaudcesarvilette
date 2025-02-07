@@ -1,26 +1,31 @@
-import { draftMode } from "next/headers";
-import { Inter } from "next/font/google";
-
+import { Manrope } from "next/font/google";
+import { QueryProvider } from "@/components/providers/QueryProvider";
+import Header from "@/components/globals/Header";
+import Footer from "@/components/globals/Footer";
+import AuthProvider from "@/components/providers/AuthProvider";
 import "@/app/globals.css";
 
-import Navigation from "@/components/Globals/Navigation/Navigation";
-import { PreviewNotice } from "@/components/Globals/PreviewNotice/PreviewNotice";
+const font = Manrope({ subsets: ["latin"] });
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params?: { slug?: string[] };
 }) {
-  const { isEnabled } = draftMode();
-
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {isEnabled && <PreviewNotice />}
-        <Navigation />
-        {children}
+    <html lang="fr">
+      <body className={font.className}>
+        <AuthProvider>
+          <QueryProvider>
+            <Header />
+            <main>
+              {children}
+            </main>
+            <Footer />
+          </QueryProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,2 +1,5 @@
-export const nextSlugToWpSlug = (nextSlug: string) =>
-  nextSlug && Array.isArray(nextSlug) ? nextSlug.join("/") : nextSlug ?? "/";
+// utils/nextSlugToWpSlug.ts
+export const nextSlugToWpSlug = (nextSlug: string[] | undefined): string => {
+  if (!nextSlug) return "/";
+  return nextSlug.join("/");
+};
