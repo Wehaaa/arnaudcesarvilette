@@ -1,6 +1,6 @@
 'use client'
-import BrandsCarousel from "@/components/globals/brand/BrandCarousel"
+import BrandCarousel from "@/components/globals/brand/BrandCarousel"
 
 export default function HomeCarouselSection({ images }: { images: string[] }) {
-  return <BrandsCarousel images={images} />
+  return <BrandCarousel images={images} />
 }
