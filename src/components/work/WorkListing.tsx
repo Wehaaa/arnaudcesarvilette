@@ -17,8 +17,6 @@ export default async function WorkListing({ category }: WorkListingProps) {
     category
   })
 
-  console.log( worksData )
-
   // Récupération des données de la catégorie dans la même fonction
   const categoryData = await fetchGraphQL(queryWorkCategory, {
     category: category

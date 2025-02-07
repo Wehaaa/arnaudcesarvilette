@@ -1,4 +1,4 @@
-import WorkListing from "@/components/work/WorkListing";
+import LandingSingle from '@/components/landing/LandingSingle';
 
 interface LandingTemplateProps {
   params: {
@@ -8,5 +8,6 @@ interface LandingTemplateProps {
 
 export default async function Page({ params }: LandingTemplateProps) {
   const { slug } = await params;
-  return <WorkListing category={slug} />;
+  const fullSlug = `offre/${slug}`;
+  return <LandingSingle slug={fullSlug} />;
 }

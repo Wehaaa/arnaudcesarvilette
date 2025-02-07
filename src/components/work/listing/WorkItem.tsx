@@ -30,7 +30,6 @@ interface WorkItemProps {
 }
 
 export const WorkItem: React.FC<WorkItemProps> = ({ work, onClick }) => {
-  console.log( work )
   return (
     <div 
       onClick={onClick}

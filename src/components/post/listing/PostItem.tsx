@@ -17,12 +17,9 @@ export const PostItem = ({ post, className = "" }: { post: Post, className: stri
   const category = post.categories.nodes[0].name;
   const altText = post.featuredImage?.node?.altText || post.title;
   const title = post.title;
-  console.log( post.featuredImage )
   const imageUrl = post.featuredImage?.node?.mediaDetails?.sizes?.find(
     size => size.name === "medium_large"
   )?.sourceUrl;
-
-  console.log( imageUrl )
 
   return (
     <Link href={post.uri} className={`group block overflow-hidden bg-white ${className}`}>
